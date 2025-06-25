@@ -3,8 +3,157 @@
 <head>
   <meta charset="UTF-8">
   <title>Dice Date</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link href="https://fonts.googleapis.com/css2?family=Fredoka&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      text-align: center;
+      font-family: 'Fredoka', sans-serif;
+      background: linear-gradient(120deg, #f6d365, #fda085);
+      background-attachment: fixed;
+      background-size: cover;
+      margin: 0;
+      padding: 0;
+    }
+
+    h1 {
+      margin-top: 20px;
+      font-size: 6vw;
+    }
+
+    #scores {
+      margin-bottom: 10px;
+      font-size: 1.2rem;
+    }
+
+    .game-container {
+      position: relative;
+      width: 95%;
+      max-width: 1000px;
+      height: 140px;
+      overflow-x: auto;
+      white-space: nowrap;
+      margin: 20px auto;
+      border: 3px solid #000;
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 0 8px rgba(0,0,0,0.1);
+    }
+
+    #board {
+      display: flex;
+      align-items: center;
+      padding: 10px;
+      min-width: fit-content;
+    }
+
+    .tile {
+      width: 60px;
+      height: 60px;
+      margin: 5px;
+      border-radius: 12px;
+      border: 3px solid #333;
+      box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.2);
+      background-color: gray;
+      display: inline-block;
+      flex-shrink: 0;
+    }
+
+    .player {
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      color: white;
+      font-weight: bold;
+      font-size: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: absolute;
+      transition: left 0.5s;
+    }
+
+    .player-devon {
+      background-color: lightblue;
+      top: 10px;
+    }
+
+    .player-hayden {
+      background-color: lightgreen;
+      top: 70px;
+    }
+
+    button {
+      padding: 10px 20px;
+      margin-top: 10px;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+
+    #reset-btn {
+      background-color: #e74c3c;
+      color: white;
+      border: none;
+      border-radius: 6px;
+    }
+
+    #reset-btn:hover {
+      background-color: #c0392b;
+    }
+
+    .popup {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.5);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+    }
+
+    .popup.show {
+      display: flex;
+    }
+
+    .card {
+      background: white;
+      padding: 20px;
+      border-radius: 12px;
+      width: 80%;
+      max-width: 350px;
+      text-align: center;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      backdrop-filter: blur(2px);
+      border: 1px solid rgba(0, 0, 0, 0.1);
+    }
+
+    #turn-indicator, #move-result {
+      font-size: 1.1rem;
+      margin: 10px 0;
+    }
+
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 7vw;
+      }
+
+      .tile {
+        width: 50px;
+        height: 50px;
+      }
+
+      .player {
+        width: 25px;
+        height: 25px;
+        font-size: 14px;
+      }
+
+      button {
+        font-size: 0.9rem;
+      }
+    }
+  </style>
 </head>
 <body>
 
@@ -25,8 +174,7 @@
   <button id="roll-btn">Roll Dice</button>
   <p id="move-result" style="font-weight: bold;"></p>
 
-  <button id="reset-btn" style="margin-left: 10px; background-color: #e74c3c; color: white;">Reset Game</button>
-
+  <button id="reset-btn">Reset Game</button>
 
   <div id="card-popup" class="popup">
     <div class="card">
