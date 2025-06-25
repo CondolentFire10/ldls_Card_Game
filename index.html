@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Dice Date</title>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <h1>Dice Date</h1>
+
+  <div id="scores">
+    <p>Devon: <span id="score-devon">0</span> pts</p>
+    <p>Hayden: <span id="score-hayden">0</span> pts</p>
+  </div>
+
+  <div class="game-container">
+    <div id="board"></div>
+    <div id="player-devon" class="player player-devon">D</div>
+    <div id="player-hayden" class="player player-hayden">H</div>
+  </div>
+
+  <p id="turn-indicator">Turn: Devon</p>
+  <button id="roll-btn">Roll Dice</button>
+  <p id="move-result" style="font-weight: bold;"></p>
+
+  <button id="reset-btn" style="margin-left: 10px; background-color: #e74c3c; color: white;">Reset Game</button>
+
+
+  <div id="card-popup" class="popup">
+    <div class="card">
+      <h2 id="card-category">Card Category</h2>
+      <p id="card-text">Card Text</p>
+      <button id="verify-btn">Done!</button>
+      <button id="skip-btn">Skip</button> 
+    </div>
+  </div>
+
+  <script type="module" src="script.js"></script>
+</body>
+</html>
